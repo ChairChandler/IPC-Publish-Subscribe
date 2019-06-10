@@ -25,7 +25,7 @@ Main file for managing communication, it initialize server and run infinite loop
 Contains request system handler.
 
 -server.c
-Zawiera funkcje podstawowe służące do przeszukiwania, uaktualniania, usuwania, dodawania oczekiwanych elementów tablic nadawców, odbiorców, wiadomości etc.
+Contains basic functions for searching, updating, deleting, adding expected elements of senders, recipients, messages etc.
 
 -message.c
 Contains definition of empty message.
@@ -55,7 +55,7 @@ Contains registering window signals.
 Contains definition of threads functions for listening and creating messages dialogs with new message or new notification.
 
 -connect.c
-Zawiera definicje funkcji realizujących requesty klienta, ale także funkcje pomocnicze jak np. sprawdzenie czy występuje nowe powiadomienie.
+Contains definitions of functions that perform client requests, but also auxiliary functions such as checking if there is a new notification.
 
 -msgbox.c
 Contains definition of functions for creates and shows messages dialog in type error or succes.
