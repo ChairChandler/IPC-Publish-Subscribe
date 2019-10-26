@@ -1,22 +1,22 @@
-#IPC Publish Subscribe 
+**IPC Publish Subscribe** 
 
 ![Build_status](https://travis-ci.org/ChairChandler/IPC-Publish-Subscribe.svg?branch=master)
 
 
-##Compilation instruction
+**Compilation instruction**
 =======================
 
 In every directories there is a Makefile, in this directory you ought to run "make" command.
 
 
-##Start-up instruction
+**Start-up instruction**
 =======================
 
 To run server you have to run "Server" file in "Server" directory.
 To run client you have to run "Client" file in "Client" directory.
 
 
-##C files content
+**C files content**
 ======================
 a) server:
 -main.c	
