@@ -2,15 +2,15 @@ Structure description
 =======================
 
 
-Bool - enumerator, C++ bool equivalent:
+- Bool - enumerator, C++ bool equivalent:
   - **False** - false,
   - **True** - true
 
 
 
-Error - enumeration type for selecting error type on the server size.
+- Error - enumeration type for selecting error type on the server size.
 
-Error types:
+- Error types:
   - **MaxLoggedUsers** - maximum logged persons,
   - **MaxRegisteredUsers** - maximum registered persons,
   - **MaxMsgs** - maximum messages number in user message box,
@@ -27,25 +27,25 @@ Error types:
 
 
 
-Port - enumeration type for selecting port which will be used.
+- Port - enumeration type for selecting port which will be used.
 
-Types of ports:
-- server ports:
-  - **Receivers_port** - the port on which the server receives messages from recipients,
-  - **Senders_port** - the port on which the server receives messages from senders
+- Types of ports:
+  - server ports:
+    - **Receivers_port** - the port on which the server receives messages from recipients,
+    - **Senders_port** - the port on which the server receives messages from senders
 
-- client ports:
-  - **Message_port** - the port on which the client receives messages from the server, both text and various types of data, e.g. message types, random type etc. (general purpose port)
-  - **Error_port** - the port on which error messages from the server come,
-  - **Notification_port** - the port on which notifications from the server come about a new message in the user's container,
-  - **Async_port** - the port on which messages from the server arrive using the asynchronous method,
-  - **Answer_port** - the port on which the client can check whether the server is active
-
-
+  - client ports:
+    - **Message_port** - the port on which the client receives messages from the server, both text and various types of data, e.g. message types, random type etc. (general purpose port)
+    - **Error_port** - the port on which error messages from the server come,
+    - **Notification_port** - the port on which notifications from the server come about a new message in the user's container,
+    - **Async_port** - the port on which messages from the server arrive using the asynchronous method,
+    - **Answer_port** - the port on which the client can check whether the server is active
 
 
 
-Message - structure containing information about the message, ie the content, priority and type of the message.
+
+
+- Message - structure containing information about the message, ie the content, priority and type of the message.
 The message type is used to specify recipients who have signed up to receive a given type of message.
 
 
@@ -54,12 +54,12 @@ The message type is used to specify recipients who have signed up to receive a g
 
 
 
-Wrapper - a structure used to package the selected data type from the Wrapper_data union.
+- Wrapper - a structure used to package the selected data type from the Wrapper_data union.
 
 
 
 
-Wrapper_data - union used to choose one of the following elements:
+- Wrapper_data - union used to choose one of the following elements:
   - **Error error** - error,
   - **RcvMsg rcvMsg** - messages from or to the recipient,
   - **SndMsg sndMsg** - messages from or to the sender,
@@ -68,7 +68,7 @@ Wrapper_data - union used to choose one of the following elements:
 
 
 
-ReceiverInfo - structure describing the recipient:
+- ReceiverInfo - structure describing the recipient:
   - **char name [BUFF_SIZE]** - name,
   - **MsgType rcvMsgTypes [BUFF_SIZE]** - interesting types of messages to receive,
   - **RcvInfoNotifications rcvNot** - decision on how to notify,
@@ -79,34 +79,34 @@ ReceiverInfo - structure describing the recipient:
 
 
 
-RcvInfoSend - enumerator, way of message reception:
+- RcvInfoSend - enumerator, way of message reception:
   - **Manual** - manual, manual reception of messages,
   - **Automatic** - automatic, sending immediately after receiving an interesting message by the server
 
 
 
 
-RcvInfoSubscription - enumerator, subscription method:
+- RcvInfoSubscription - enumerator, subscription method:
   - **TemporarySubscription** - temporary subscription, after a set time the user will be removed from registered persons, but will not be logged out
   - **PermanentSubscription** - permanent subscription without removal
 
 
 
 
-RcvInfoNotifications - enumerator, way of notification:
+- RcvInfoNotifications - enumerator, way of notification:
   - **NoNotifications** - without notifications,
   - **Notifications** - with notification, after detecting an interesting message, the server sends a notification about the new message
 
 
 
 
-RcvMsg - a structure for packaging the recipient's request with data sent to the server or only data sent to the recipient from the server:
+- RcvMsg - a structure for packaging the recipient's request with data sent to the server or only data sent to the recipient from the server:
   - **ClientRequest request** - user request,
   - **RcvMsg_Data data** - selected data type to send
 
 
 
-RcvMsg_Data - union used to select one of the following items to send:
+- RcvMsg_Data - union used to select one of the following items to send:
   - **ReceiverInfo user** - user information (recipient -> server),
   - **Message msg** - message (recipient <- server),
   - **MsgType msgTypeArray [BUFF_SIZE]** - message types currently on the server (recipient <- server)
@@ -114,34 +114,34 @@ RcvMsg_Data - union used to select one of the following items to send:
 
 
 
-ClientRequest - enumerator, client requests:
-- only the recipient:
-  - **Register**,
-  - **Unregister**,
-  - **GetMsg**,
+- ClientRequest - enumerator, client requests:
+  - only the recipient:
+    - **Register**,
+    - **Unregister**,
+    - **GetMsg**,
 
-- only the sender:
-  - **Login** - log in to the server,
-  - **Logout** - logout from the server,
-  - **NewType** - send a new type created by the server upload,
-  - **RandomType** - request creation of a random type,
-  - **SendMsg** - send a message to the server
+  - only the sender:
+    - **Login** - log in to the server,
+    - **Logout** - logout from the server,
+    - **NewType** - send a new type created by the server upload,
+    - **RandomType** - request creation of a random type,
+    - **SendMsg** - send a message to the server
 
-- both:
-  - **GetTypes** - download types from the server
-
-
+  - both:
+    - **GetTypes** - download types from the server
 
 
 
-SenderInfo - structure describing the sender:
+
+
+- SenderInfo - structure describing the sender:
   - **int ID** - sender ID,
   - **char name [BUFF_SIZE]** - name
 
 
 
 
-SndMsg - a structure used to package the sender's request with data sent to the server or only data sent to the sender from the server:
+- SndMsg - a structure used to package the sender's request with data sent to the server or only data sent to the sender from the server:
   - **ClientRequest request** - sender's request,
   - **SenderInfo user** - information about the sender
   - **SndMsg_Data data** - selected data type to send
@@ -149,7 +149,7 @@ SndMsg - a structure used to package the sender's request with data sent to the 
 
 
 
-SndMsg_Data - union used to select one of the following items to send:
+- SndMsg_Data - union used to select one of the following items to send:
   - **MsgType msgType** - message type created by the sender (sender -> server)
   - **MsgType msgTypesArray [BUFF_SIZE]** - message types currently on the server (sender <- server)
   - **Message msg** - message (sender -> server)
@@ -158,7 +158,7 @@ SndMsg_Data - union used to select one of the following items to send:
 
 
 
-ServerInfo - structure, information about the server (program):
+- ServerInfo - structure, information about the server (program):
   - **int fileDesc** - server file descriptor,
   - **RegisterUserInfo registeredUsers [BUFF_SIZE]** - information board of registered users,
   - **SenderInfo loggedUsers [BUFF_SIZE]** - information table of logged in users,
@@ -168,7 +168,7 @@ ServerInfo - structure, information about the server (program):
 
 
 
-ClientInfo - structure, information about the client (program):
+- ClientInfo - structure, information about the client (program):
   - **int clientFileDesc** - client file descriptor,
   - **int serverFileDesc** - server file descriptor,
   - **Error * lastError** - last error encountered
@@ -177,7 +177,7 @@ ClientInfo - structure, information about the client (program):
 
 
 
-ListeningThreadsInfo - a structure for describing and controlling the operation of listening threads:
+- ListeningThreadsInfo - a structure for describing and controlling the operation of listening threads:
   - **guint notificationThread** - the number of the thread listening to the notification,
   - **guint messageThread** - the thread number of the listening message,
   - **volatile Bool stopNotThread** - information about stopping the notification thread,
