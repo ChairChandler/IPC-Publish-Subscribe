@@ -23,7 +23,7 @@ a) server:
 Contains server IP and start-up function "run".
 
 - connect.c 
-Main file for managing communication, it initialize server and run infinite loop, reads sender requests and receives and sends asynchronous messages, checks subscription time and managed it.
+  - Main file for managing communication, it initialize server and run infinite loop, reads sender requests and receives and sends asynchronous messages, checks subscription time and managed it.
 
 - request.c
 Contains request system handler.
