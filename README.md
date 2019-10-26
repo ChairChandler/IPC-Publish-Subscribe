@@ -1,19 +1,19 @@
 ![Build_status](https://travis-ci.org/ChairChandler/IPC-Publish-Subscribe.svg?branch=master)
 
-======================
+
 Compilation instruction
-======================
+=======================
 
 In every directories there is a Makefile, in this directory you ought to run "make" command.
 
-======================
+
 Start-up instruction
-======================
+=======================
 
 To run server you have to run "Server" file in "Server" directory.
 To run client you have to run "Client" file in "Client" directory.
 
-======================
+
 C files content
 ======================
 a) server:
