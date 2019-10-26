@@ -83,4 +83,4 @@ To run client you have to run "Client" file in "Client" directory.
   - senders.c
     - Contains definition of empty sender.
 
-[a relative link](PROTOCOL.md)
+## [Information about structure and functionality](PROTOCOL.md)
