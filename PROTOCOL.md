@@ -30,11 +30,11 @@ Error types:
 Port - enumeration type for selecting port which will be used.
 
 Types of ports:
-a) server ports:
+- server ports:
   - **Receivers_port** - the port on which the server receives messages from recipients,
   - **Senders_port** - the port on which the server receives messages from senders
 
-b) client ports:
+- client ports:
   - **Message_port** - the port on which the client receives messages from the server, both text and various types of data, e.g. message types, random type etc. (general purpose port)
   - **Error_port** - the port on which error messages from the server come,
   - **Notification_port** - the port on which notifications from the server come about a new message in the user's container,
@@ -115,19 +115,19 @@ RcvMsg_Data - union used to select one of the following items to send:
 
 
 ClientRequest - enumerator, client requests:
-a) only the recipient:
+- only the recipient:
   - **Register**,
   - **Unregister**,
   - **GetMsg**,
 
-b) only the sender:
+- only the sender:
   - **Login** - log in to the server,
   - **Logout** - logout from the server,
   - **NewType** - send a new type created by the server upload,
   - **RandomType** - request creation of a random type,
   - **SendMsg** - send a message to the server
 
-c) both:
+- both:
   - **GetTypes** - download types from the server
 
 
@@ -142,52 +142,52 @@ SenderInfo - structure describing the sender:
 
 
 SndMsg - a structure used to package the sender's request with data sent to the server or only data sent to the sender from the server:
-- **ClientRequest request** - sender's request,
-- **SenderInfo user** - information about the sender
-- **SndMsg_Data data** - selected data type to send
+  - **ClientRequest request** - sender's request,
+  - **SenderInfo user** - information about the sender
+  - **SndMsg_Data data** - selected data type to send
 
 
 
 
 SndMsg_Data - union used to select one of the following items to send:
-- **MsgType msgType** - message type created by the sender (sender -> server)
-- **MsgType msgTypesArray [BUFF_SIZE]** - message types currently on the server (sender <- server)
-- **Message msg** - message (sender -> server)
+  - **MsgType msgType** - message type created by the sender (sender -> server)
+  - **MsgType msgTypesArray [BUFF_SIZE]** - message types currently on the server (sender <- server)
+  - **Message msg** - message (sender -> server)
 
 
 
 
 
 ServerInfo - structure, information about the server (program):
-- **int fileDesc** - server file descriptor,
-- **RegisterUserInfo registeredUsers [BUFF_SIZE]** - information board of registered users,
-- **SenderInfo loggedUsers [BUFF_SIZE]** - information table of logged in users,
-- **MsgType msgTypes [BUFF_SIZE]** - current data types on the server
+  - **int fileDesc** - server file descriptor,
+  - **RegisterUserInfo registeredUsers [BUFF_SIZE]** - information board of registered users,
+  - **SenderInfo loggedUsers [BUFF_SIZE]** - information table of logged in users,
+  - **MsgType msgTypes [BUFF_SIZE]** - current data types on the server
 
 
 
 
 
 ClientInfo - structure, information about the client (program):
-- **int clientFileDesc** - client file descriptor,
-- **int serverFileDesc** - server file descriptor,
-- **Error * lastError** - last error encountered
+  - **int clientFileDesc** - client file descriptor,
+  - **int serverFileDesc** - server file descriptor,
+  - **Error * lastError** - last error encountered
 
 
 
 
 
 ListeningThreadsInfo - a structure for describing and controlling the operation of listening threads:
-- **guint notificationThread** - the number of the thread listening to the notification,
-- **guint messageThread** - the thread number of the listening message,
-- **volatile Bool stopNotThread** - information about stopping the notification thread,
-- **volatile Bool stopMessageThread** - information about stopping the message thread
+  - **guint notificationThread** - the number of the thread listening to the notification,
+  - **guint messageThread** - the thread number of the listening message,
+  - **volatile Bool stopNotThread** - information about stopping the notification thread,
+  - **volatile Bool stopMessageThread** - information about stopping the message thread
 
 
 Description of the functionality of the components
 =======================
 
-- the customer
+- Client
 
 
 
@@ -204,7 +204,7 @@ Also included are auxiliary functions such as checking a new message or notifica
 
 
 
-- server
+- Server
 
 
 The connect.c file initiates server work and waits for new requests in the meantime by sending new notifications (if they are) and if the user has selected temporary subscriptions and has exceeded the time for temporary registration, it will be removed from registered users (will not be logged out). If a request is detected, the corresponding functions are called in the request.c file
