@@ -35,7 +35,7 @@ a) server ports:
   - Senders_port - the port on which the server receives messages from senders
 
 b) client ports:
-  - Message_port - the port on which the client receives messages from the server, both text and various types of data, e.g. message types, random type etc. [general purpose port]
+  - Message_port - the port on which the client receives messages from the server, both text and various types of data, e.g. message types, random type etc. (general purpose port)
   - Error_port - the port on which error messages from the server come,
   - Notification_port - the port on which notifications from the server come about a new message in the user's container,
   - Async_port - the port on which messages from the server arrive using the asynchronous method,
@@ -64,13 +64,13 @@ Wrapper_data - union used to choose one of the following elements:
   - RcvMsg rcvMsg - messages from or to the recipient,
   - SndMsg sndMsg - messages from or to the sender,
   - Bool isNotification - new message notifications,
-  - char emptyData - an empty message sent on the client's Answer_port port [can not send a message without any type of data, therefore this is the reason for creating this variable]
+  - char emptyData - an empty message sent on the client's Answer_port port (can not send a message without any type of data, therefore this is the reason for creating this variable)
 
 
 
 ReceiverInfo - structure describing the recipient:
-  - char name [BUFF_SIZE] - name,
-  - MsgType rcvMsgTypes [BUFF_SIZE] - interesting types of messages to receive,
+  - **char name [BUFF_SIZE]** - name,
+  - **MsgType rcvMsgTypes [BUFF_SIZE]** - interesting types of messages to receive,
   - RcvInfoNotifications rcvNot - decision on how to notify,
   - RcvInfoSubscription rcvSub - the decision about choosing the subscription method,
   - RcvInfoSend rcvSend - the decision about choosing the method of message retrieval
@@ -107,9 +107,9 @@ RcvMsg - a structure for packaging the recipient's request with data sent to the
 
 
 RcvMsg_Data - union used to select one of the following items to send:
-  - ReceiverInfo user - user information [recipient -> server],
-  - Message msg - message [recipient <- server],
-  - MsgType msgTypeArray [BUFF_SIZE] - message types currently on the server [recipient <- server]
+  - ReceiverInfo user - user information (recipient -> server),
+  - Message msg - message (recipient <- server),
+  - MsgType msgTypeArray [BUFF_SIZE] - message types currently on the server (recipient <- server)
 
 
 
@@ -150,15 +150,15 @@ SndMsg - a structure used to package the sender's request with data sent to the 
 
 
 SndMsg_Data - union used to select one of the following items to send:
-- MsgType msgType - message type created by the sender [sender -> server]
-- MsgType msgTypesArray [BUFF_SIZE] - message types currently on the server [sender <- server]
-- Message msg - message [sender -> server]
+- MsgType msgType - message type created by the sender (sender -> server)
+- MsgType msgTypesArray [BUFF_SIZE] - message types currently on the server (sender <- server)
+- Message msg - message (sender -> server)
 
 
 
 
 
-ServerInfo - structure, information about the server [program]:
+ServerInfo - structure, information about the server (program):
 - int fileDesc - server file descriptor,
 - RegisterUserInfo registeredUsers [BUFF_SIZE] - information board of registered users,
 - SenderInfo loggedUsers [BUFF_SIZE] - information table of logged in users,
@@ -168,7 +168,7 @@ ServerInfo - structure, information about the server [program]:
 
 
 
-ClientInfo - structure, information about the client [program]:
+ClientInfo - structure, information about the client (program):
 - int clientFileDesc - client file descriptor,
 - int serverFileDesc - server file descriptor,
 - Error * lastError - last error encountered
@@ -198,7 +198,7 @@ ListeningThreadsInfo - a structure for describing and controlling the operation 
 
 
 
-=======================================================================================================================================================
+=======================================
 Description of the functionality of the components:
 a) the customer
 
@@ -207,7 +207,7 @@ a) the customer
 
 The main.c, logicwindow.c, and registerwindow.c files are used to control the GUI in GTK.
 
-The msgbox.c file contains definitions of functions that allow displaying the message dialog [error, success].
+The msgbox.c file contains definitions of functions that allow displaying the message dialog (error, success).
 
 The file listening.c contains definitions of functions called in registerwind.c. They are used to wait for a new message, notification depending on the user preferences selected in main.c in the options window; displaying a new message, notifications. They are interrupted after receiving the message of a new person created (new registration) or finalizing the program.
 
