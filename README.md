@@ -19,62 +19,62 @@ To run client you have to run "Client" file in "Client" directory.
 **C files content**
 ======================
 a) server:
--main.c	
+- main.c	
 Contains server IP and start-up function "run".
 
--connect.c 
+- connect.c 
 Main file for managing communication, it initialize server and run infinite loop, reads sender requests and receives and sends asynchronous messages, checks subscription time and managed it.
 
--request.c
+- request.c
 Contains request system handler.
 
--server.c
+- server.c
 Contains basic functions for searching, updating, deleting, adding expected elements of senders, recipients, messages etc.
 
--message.c
+- message.c
 Contains definition of empty message.
 
--msgtype.c
+- msgtype.c
 Contains definition of empty message type.
 
--receivers.c
+- receivers.c
 Contains definition of empty receiver.
 
--senders.c
+- senders.c
 Contains definition of empty sender.
 
 --------------------------
 b) client:
--main.c
+- main.c
 Contains intialize GTK application, managed main menu GUI, register GUI, login GUI, register option GUI. 
 Also contains signals for managing registering option window.
 
--loginwindow.c
+- loginwindow.c
 Contains logging window signals.
 
--registerwindow.c
+- registerwindow.c
 Contains registering window signals.
 
--listening.c
+- listening.c
 Contains definition of threads functions for listening and creating messages dialogs with new message or new notification.
 
--connect.c
+- connect.c
 Contains definitions of functions that perform client requests, but also auxiliary functions such as checking if there is a new notification.
 
--msgbox.c
+- msgbox.c
 Contains definition of functions for creates and shows messages dialog in type error or succes.
 
--removewidgets.c
+- removewidgets.c
 Contains definition of removal widgets function.
 
--message.c
+- message.c
 Contains definition of empty message.
 
--msgtype.c
+- msgtype.c
 Contains definition of empty message type.
 
--receivers.c
+- receivers.c
 Contains definition of empty receiver.
 
--senders.c
+- senders.c
 Contains definition of empty sender.
