@@ -1,5 +1,5 @@
-Structure description:
-
+Structure description
+=======================
 
 
 Bool - enumerator, C++ bool equivalent:
@@ -185,8 +185,9 @@ ListeningThreadsInfo - a structure for describing and controlling the operation 
 
 
 Description of the functionality of the components
-######
-a) the customer
+=======================
+
+- the customer
 
 
 
@@ -203,7 +204,7 @@ Also included are auxiliary functions such as checking a new message or notifica
 
 
 
-b) server
+- server
 
 
 The connect.c file initiates server work and waits for new requests in the meantime by sending new notifications (if they are) and if the user has selected temporary subscriptions and has exceeded the time for temporary registration, it will be removed from registered users (will not be logged out). If a request is detected, the corresponding functions are called in the request.c file
