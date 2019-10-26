@@ -18,7 +18,7 @@ To run client you have to run "Client" file in "Client" directory.
 
 **C files content**
 ======================
-a) server:
+1. Server:
 - main.c	
   - Contains server IP and start-up function "run".
 
@@ -44,7 +44,7 @@ a) server:
   - Contains definition of empty sender.
 
 --------------------------
-b) client:
+2. Client
 - main.c
   - Contains intialize GTK application, managed main menu GUI, register GUI, login GUI, register option GUI. 
 Also contains signals for managing registering option window.
