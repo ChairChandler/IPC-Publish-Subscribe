@@ -9,7 +9,7 @@ Structure description
 
 
 - Error - enumeration type for selecting error type on the server size.
-  Error types:
+Error types:
   - **MaxLoggedUsers** - maximum logged persons,
   - **MaxRegisteredUsers** - maximum registered persons,
   - **MaxMsgs** - maximum messages number in user message box,
