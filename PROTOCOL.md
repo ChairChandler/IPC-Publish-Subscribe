@@ -2,41 +2,39 @@ Structure description
 =======================
 
 
-- Bool - enumerator, C++ bool equivalent:
-  - **False** - false,
+- Bool - enumerator, C++ bool equivalent
+  - **False** - false
   - **True** - true
 
 
 
-- Error - enumeration type for selecting error type on the server size.
-Error types:
-  - **MaxLoggedUsers** - maximum logged persons,
-  - **MaxRegisteredUsers** - maximum registered persons,
-  - **MaxMsgs** - maximum messages number in user message box,
-  - **NoMsg** - no messages in user message box,
-  - **NoLoggedUser** - user not logged,
-  - **NoRegisteredUser** - user not registered,
-  - **LoggedUser** - user logged,
-  - **RegisteredUser** - user registered,
-  - **WrongMsgType** - wrong message type; type had been registered in a system,
-  - **NoMsgTypes** - no message type in a system,
-  - **MaxMsgTypes** - maximum message type in a system,
+- Error - enumeration type for selecting error type on the server size
+  - **MaxLoggedUsers** - maximum logged persons
+  - **MaxRegisteredUsers** - maximum registered persons
+  - **MaxMsgs** - maximum messages number in user message box
+  - **NoMsg** - no messages in user message box
+  - **NoLoggedUser** - user not logged
+  - **NoRegisteredUser** - user not registered
+  - **LoggedUser** - user logged
+  - **RegisteredUser** - user registered
+  - **WrongMsgType** - wrong message type; type had been registered in a system
+  - **NoMsgTypes** - no message type in a system
+  - **MaxMsgTypes** - maximum message type in a system
   - **WrongID** - invalid sender ID who is logged out
 
 
 
 
-- Port - enumeration type for selecting port which will be used.
-  Types of ports:
-  - server ports:
-    - **Receivers_port** - the port on which the server receives messages from recipients,
+- Port - enumeration type for selecting port which will be used
+  - server ports
+    - **Receivers_port** - the port on which the server receives messages from recipients
     - **Senders_port** - the port on which the server receives messages from senders
 
-  - client ports:
+  - client ports
     - **Message_port** - the port on which the client receives messages from the server, both text and various types of data, e.g. message types, random type etc. (general purpose port)
-    - **Error_port** - the port on which error messages from the server come,
-    - **Notification_port** - the port on which notifications from the server come about a new message in the user's container,
-    - **Async_port** - the port on which messages from the server arrive using the asynchronous method,
+    - **Error_port** - the port on which error messages from the server come
+    - **Notification_port** - the port on which notifications from the server come about a new message in the user's container
+    - **Async_port** - the port on which messages from the server arrive using the asynchronous method
     - **Answer_port** - the port on which the client can check whether the server is active
 
 
@@ -52,98 +50,122 @@ The message type is used to specify recipients who have signed up to receive a g
 
 
 
-- Wrapper - a structure used to package the selected data type from the Wrapper_data union.
-  Wrapper_data - union used to choose one of the following elements:
-  - **Error error** - error,
-  - **RcvMsg rcvMsg** - messages from or to the recipient,
-  - **SndMsg sndMsg** - messages from or to the sender,
-  - **Bool isNotification** - new message notifications,
-  - **char emptyData** - an empty message sent on the client's Answer_port port (can not send a message without any type of data, therefore this is the reason for creating this variable)
+- Wrapper - a structure used to package the s- **Error error** - error,
+56
+    - **RcvMsg rcvMsg** - messages from or to the recipient,
+57
+    - **SndMsg sndMsg** - messages from or to the sender,
+58
+    - **Bool isNotification** - new message notifications,
+59
+    - **char emptyData** - an empty message sent on the client's Answer_port port (can not send a message without any type of data, therefore this is the reason for creating this variable)elected data type from the Wrapper_data union.
+  - Wrapper_data - union used to choose one of the following elements
+    - **Error error** - error
+    - **RcvMsg rcvMsg** - messages from or to the recipient
+    - **SndMsg sndMsg** - messages from or to the sender
+    - **Bool isNotification** - new message notifications
+    - **char emptyData** - an empty message sent on the client's Answer_port port (can not send a message without any type of data, therefore this is the reason for creating this variable)
 
 
 
-- ReceiverInfo - structure describing the recipient:
-  - **char name [BUFF_SIZE]** - name,
-  - **MsgType rcvMsgTypes [BUFF_SIZE]** - interesting types of messages to receive,
-  - **RcvInfoNotifications rcvNot** - decision on how to notify,
-  - **RcvInfoSubscription rcvSub** - the decision about choosing the subscription method,
+- ReceiverInfo - structure describing the recipient
+  - **char name [BUFF_SIZE]** - name
+  - **MsgType rcvMsgTypes [BUFF_SIZE]** - interesting types of messages to receive
+  - **RcvInfoNotifications rcvNot** - decision on how to notify
+  - **RcvInfoSubscription rcvSub** - the decision about choosing the subscription method
   - **RcvInfoSend rcvSend** - the decision about choosing the method of message retrieval
 
 
 
 
 
-- RcvInfoSend - enumerator, way of message reception:
-  - **Manual** - manual, manual reception of messages,
+- RcvInfoSend - enumerator, way of message reception
+  - **Manual** - manual, manual reception of messages
   - **Automatic** - automatic, sending immediately after receiving an interesting message by the server
 
 
 
 
-- RcvInfoSubscription - enumerator, subscription method:
+- RcvInfoSubscription - enumerator, subscription method
   - **TemporarySubscription** - temporary subscription, after a set time the user will be removed from registered persons, but will not be logged out
   - **PermanentSubscription** - permanent subscription without removal
 
 
 
 
-- RcvInfoNotifications - enumerator, way of notification:
-  - **NoNotifications** - without notifications,
+- RcvInfoNotifications - enumerator, way of notification
+  - **NoNotifications** - without notifications
   - **Notifications** - with notification, after detecting an interesting message, the server sends a notification about the new message
+- **Error error** - error,
+56
+    - **RcvMsg rcvMsg** - messages from or to the recipient,
+57
+    - **SndMsg sndMsg** - messages from or to the sender,
+58
+    - **Bool isNotification** - new message notifications,
+59
+    - **char emptyData** - an empty message sent on the client's Answer_port port (can not send a message without any type of data, therefore this is the reason for creating this variable)
 
 
 
-
-- RcvMsg - a structure for packaging the recipient's request with data sent to the server or only data sent to the recipient from the server:
-  - **ClientRequest request** - user request,
+- RcvMsg - a structure for packaging the recipient's request with data sent to the server or only data sent to the recipient from the server
+  - **ClientRequest request** - user request
   - **RcvMsg_Data data** - selected data type to send
 
 
 
-- RcvMsg_Data - union used to select one of the following items to send:
-  - **ReceiverInfo user** - user information (recipient -> server),
-  - **Message msg** - message (recipient <- server),
+- RcvMsg_Data - union used to select one of the following items to send
+  - **ReceiverInfo user** - user information (recipient -> server)
+  - **Message msg** - message (recipient <- server)
   - **MsgType msgTypeArray [BUFF_SIZE]** - message types currently on the server (recipient <- server)
 
 
 
+- **Error error** - error,
+56
+    - **RcvMsg rcvMsg** - messages from or to the recipient,
+57
+    - **SndMsg sndMsg** - messages from or to the sender,
+58
+    - **Bool isNotification** - new message notifications,
+59
+    - **char emptyData** - an empty message sent on the client's Answer_port port (can not send a message without any type of data, therefore this is the reason for creating this variable)
+- ClientRequest - enumerator, client requests
+  - only the recipient
+    - **Register**
+    - **Unregister**
+    - **GetMsg**
 
-- ClientRequest - enumerator, client requests:
-  - only the recipient:
-    - **Register**,
-    - **Unregister**,
-    - **GetMsg**,
-
-  - only the sender:
-    - **Login** - log in to the server,
-    - **Logout** - logout from the server,
-    - **NewType** - send a new type created by the server upload,
-    - **RandomType** - request creation of a random type,
+  - only the sender
+    - **Login** - log in to the server
+    - **Logout** - logout from the server
+    - **NewType** - send a new type created by the server upload
+    - **RandomType** - request creation of a random type
     - **SendMsg** - send a message to the server
 
-  - both:
+  - both
     - **GetTypes** - download types from the server
 
 
 
 
 
-- SenderInfo - structure describing the sender:
-  - **int ID** - sender ID,
+- SenderInfo - structure describing the sender
+  - **int ID** - sender ID
   - **char name [BUFF_SIZE]** - name
 
 
 
 
-- SndMsg - a structure used to package the sender's request with data sent to the server or only data sent to the sender from the server:
-  - **ClientRequest request** - sender's request,
+- SndMsg - a structure used to package the sender's request with data sent to the server or only data sent to the sender from the server
+  - **ClientRequest request** - sender's request
   - **SenderInfo user** - information about the sender
   - **SndMsg_Data data** - selected data type to send
 
 
 
 
-- SndMsg_Data - union used to select one of the following items to send:
+- SndMsg_Data - union used to select one of the following items to send
   - **MsgType msgType** - message type created by the sender (sender -> server)
   - **MsgType msgTypesArray [BUFF_SIZE]** - message types currently on the server (sender <- server)
   - **Message msg** - message (sender -> server)
@@ -152,29 +174,29 @@ The message type is used to specify recipients who have signed up to receive a g
 
 
 
-- ServerInfo - structure, information about the server (program):
-  - **int fileDesc** - server file descriptor,
-  - **RegisterUserInfo registeredUsers [BUFF_SIZE]** - information board of registered users,
-  - **SenderInfo loggedUsers [BUFF_SIZE]** - information table of logged in users,
+- ServerInfo - structure, information about the server (program)
+  - **int fileDesc** - server file descriptor
+  - **RegisterUserInfo registeredUsers [BUFF_SIZE]** - information board of registered users
+  - **SenderInfo loggedUsers [BUFF_SIZE]** - information table of logged in users
   - **MsgType msgTypes [BUFF_SIZE]** - current data types on the server
 
 
 
 
 
-- ClientInfo - structure, information about the client (program):
-  - **int clientFileDesc** - client file descriptor,
-  - **int serverFileDesc** - server file descriptor,
+- ClientInfo - structure, information about the client (program)
+  - **int clientFileDesc** - client file descriptor
+  - **int serverFileDesc** - server file descriptor
   - **Error * lastError** - last error encountered
 
 
 
 
 
-- ListeningThreadsInfo - a structure for describing and controlling the operation of listening threads:
-  - **guint notificationThread** - the number of the thread listening to the notification,
-  - **guint messageThread** - the thread number of the listening message,
-  - **volatile Bool stopNotThread** - information about stopping the notification thread,
+- ListeningThreadsInfo - a structure for describing and controlling the operation of listening threads
+  - **guint notificationThread** - the number of the thread listening to the notification
+  - **guint messageThread** - the thread number of the listening message
+  - **volatile Bool stopNotThread** - information about stopping the notification thread
   - **volatile Bool stopMessageThread** - information about stopping the message thread
 
 
