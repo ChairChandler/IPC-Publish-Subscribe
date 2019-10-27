@@ -9,8 +9,7 @@ Structure description
 
 
 - Error - enumeration type for selecting error type on the server size.
-
-- Error types:
+  Error types:
   - **MaxLoggedUsers** - maximum logged persons,
   - **MaxRegisteredUsers** - maximum registered persons,
   - **MaxMsgs** - maximum messages number in user message box,
@@ -28,8 +27,7 @@ Structure description
 
 
 - Port - enumeration type for selecting port which will be used.
-
-- Types of ports:
+  Types of ports:
   - server ports:
     - **Receivers_port** - the port on which the server receives messages from recipients,
     - **Senders_port** - the port on which the server receives messages from senders
@@ -55,11 +53,7 @@ The message type is used to specify recipients who have signed up to receive a g
 
 
 - Wrapper - a structure used to package the selected data type from the Wrapper_data union.
-
-
-
-
-- Wrapper_data - union used to choose one of the following elements:
+  Wrapper_data - union used to choose one of the following elements:
   - **Error error** - error,
   - **RcvMsg rcvMsg** - messages from or to the recipient,
   - **SndMsg sndMsg** - messages from or to the sender,
