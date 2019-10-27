@@ -50,15 +50,7 @@ The message type is used to specify recipients who have signed up to receive a g
 
 
 
-- Wrapper - a structure used to package the s- **Error error** - error,
-56
-    - **RcvMsg rcvMsg** - messages from or to the recipient,
-57
-    - **SndMsg sndMsg** - messages from or to the sender,
-58
-    - **Bool isNotification** - new message notifications,
-59
-    - **char emptyData** - an empty message sent on the client's Answer_port port (can not send a message without any type of data, therefore this is the reason for creating this variable)elected data type from the Wrapper_data union.
+- Wrapper - a structure used to package the selected data type from the Wrapper_data union.
   - Wrapper_data - union used to choose one of the following elements
     - **Error error** - error
     - **RcvMsg rcvMsg** - messages from or to the recipient
