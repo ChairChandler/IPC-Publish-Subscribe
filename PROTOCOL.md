@@ -52,20 +52,20 @@ The message type is used to specify recipients who have signed up to receive a g
 
 - Wrapper - a structure used to package the selected data type from the Wrapper_data union.
   - Wrapper_data - union used to choose one of the following elements
-    - **Error error** - error
-    - **RcvMsg rcvMsg** - messages from or to the recipient
-    - **SndMsg sndMsg** - messages from or to the sender
-    - **Bool isNotification** - new message notifications
-    - **char emptyData** - an empty message sent on the client's Answer_port port (can not send a message without any type of data, therefore this is the reason for creating this variable)
+    - **error** - error
+    - **rcvMsg** - messages from or to the recipient
+    - **sndMsg** - messages from or to the sender
+    - **isNotification** - new message notifications
+    - **emptyData** - an empty message sent on the client's Answer_port port (can not send a message without any type of data, therefore this is the reason for creating this variable)
 
 
 
 - ReceiverInfo - structure describing the recipient
-  - **char name [BUFF_SIZE]** - name
-  - **MsgType rcvMsgTypes [BUFF_SIZE]** - interesting types of messages to receive
-  - **RcvInfoNotifications rcvNot** - decision on how to notify
-  - **RcvInfoSubscription rcvSub** - the decision about choosing the subscription method
-  - **RcvInfoSend rcvSend** - the decision about choosing the method of message retrieval
+  - **name** - name
+  - **rcvMsgTypes** - interesting types of messages to receive
+  - **rcvNot** - decision on how to notify
+  - **rcvSub** - the decision about choosing the subscription method
+  - **rcvSend** - the decision about choosing the method of message retrieval
 
 
 
@@ -92,14 +92,14 @@ The message type is used to specify recipients who have signed up to receive a g
 
 
 - RcvMsg - a structure for packaging the recipient's request with data sent to the server or only data sent to the recipient from the server
-  - **ClientRequest request** - user request
-  - **RcvMsg_Data data** - selected data type to send
+  - **request** - user request
+  - **data** - selected data type to send
 
 
 - RcvMsg_Data - union used to select one of the following items to send
-  - **ReceiverInfo user** - user information (recipient -> server)
-  - **Message msg** - message (recipient <- server)
-  - **MsgType msgTypeArray [BUFF_SIZE]** - message types currently on the server (recipient <- server)
+  - **user** - user information (recipient -> server)
+  - **msg** - message (recipient <- server)
+  - **msgTypeArray** - message types currently on the server (recipient <- server)
 
 
 
@@ -124,53 +124,53 @@ The message type is used to specify recipients who have signed up to receive a g
 
 
 - SenderInfo - structure describing the sender
-  - **int ID** - sender ID
-  - **char name [BUFF_SIZE]** - name
+  - **ID** - sender ID
+  - **name** - name
 
 
 
 
 - SndMsg - a structure used to package the sender's request with data sent to the server or only data sent to the sender from the server
-  - **ClientRequest request** - sender's request
-  - **SenderInfo user** - information about the sender
-  - **SndMsg_Data data** - selected data type to send
+  - **request** - sender's request
+  - **user** - information about the sender
+  - **data** - selected data type to send
 
 
 
 
 - SndMsg_Data - union used to select one of the following items to send
-  - **MsgType msgType** - message type created by the sender (sender -> server)
-  - **MsgType msgTypesArray [BUFF_SIZE]** - message types currently on the server (sender <- server)
-  - **Message msg** - message (sender -> server)
+  - **msgType** - message type created by the sender (sender -> server)
+  - **msgTypesArray** - message types currently on the server (sender <- server)
+  - **msg** - message (sender -> server)
 
 
 
 
 
 - ServerInfo - structure, information about the server (program)
-  - **int fileDesc** - server file descriptor
-  - **RegisterUserInfo registeredUsers [BUFF_SIZE]** - information board of registered users
-  - **SenderInfo loggedUsers [BUFF_SIZE]** - information table of logged in users
-  - **MsgType msgTypes [BUFF_SIZE]** - current data types on the server
+  - **fileDesc** - server file descriptor
+  - **registeredUsers** - information board of registered users
+  - **loggedUsers** - information table of logged in users
+  - **msgTypes** - current data types on the server
 
 
 
 
 
 - ClientInfo - structure, information about the client (program)
-  - **int clientFileDesc** - client file descriptor
-  - **int serverFileDesc** - server file descriptor
-  - **Error * lastError** - last error encountered
+  - **clientFileDesc** - client file descriptor
+  - **serverFileDesc** - server file descriptor
+  - **lastError** - last error encountered
 
 
 
 
 
 - ListeningThreadsInfo - a structure for describing and controlling the operation of listening threads
-  - **guint notificationThread** - the number of the thread listening to the notification
-  - **guint messageThread** - the thread number of the listening message
-  - **volatile Bool stopNotThread** - information about stopping the notification thread
-  - **volatile Bool stopMessageThread** - information about stopping the message thread
+  - **notificationThread** - the number of the thread listening to the notification
+  - **messageThread** - the thread number of the listening message
+  - **stopNotThread** - information about stopping the notification thread
+  - **stopMessageThread** - information about stopping the message thread
 
 
 Description of the functionality of the components
