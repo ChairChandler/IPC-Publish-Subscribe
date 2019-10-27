@@ -88,22 +88,12 @@ The message type is used to specify recipients who have signed up to receive a g
 - RcvInfoNotifications - enumerator, way of notification
   - **NoNotifications** - without notifications
   - **Notifications** - with notification, after detecting an interesting message, the server sends a notification about the new message
-- **Error error** - error,
-56
-    - **RcvMsg rcvMsg** - messages from or to the recipient,
-57
-    - **SndMsg sndMsg** - messages from or to the sender,
-58
-    - **Bool isNotification** - new message notifications,
-59
-    - **char emptyData** - an empty message sent on the client's Answer_port port (can not send a message without any type of data, therefore this is the reason for creating this variable)
 
 
 
 - RcvMsg - a structure for packaging the recipient's request with data sent to the server or only data sent to the recipient from the server
   - **ClientRequest request** - user request
   - **RcvMsg_Data data** - selected data type to send
-
 
 
 - RcvMsg_Data - union used to select one of the following items to send
@@ -113,15 +103,6 @@ The message type is used to specify recipients who have signed up to receive a g
 
 
 
-- **Error error** - error,
-56
-    - **RcvMsg rcvMsg** - messages from or to the recipient,
-57
-    - **SndMsg sndMsg** - messages from or to the sender,
-58
-    - **Bool isNotification** - new message notifications,
-59
-    - **char emptyData** - an empty message sent on the client's Answer_port port (can not send a message without any type of data, therefore this is the reason for creating this variable)
 - ClientRequest - enumerator, client requests
   - only the recipient
     - **Register**
